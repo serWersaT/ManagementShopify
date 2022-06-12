@@ -103,3 +103,18 @@ function UpdateOrder() {
         }
     });
 }
+
+function TestOrder() {
+    $.ajax({
+        type: "POST",
+        url: window.location.origin + "/Home/TestOrder",
+        data: JSON.stringify(),
+        contentType: "application/json; charset=utf-8",
+        Accept: "application/json",
+        dataType: "json",
+        async: false,
+        success: function (data) {
+            alert(data);
+        }
+    });
+}

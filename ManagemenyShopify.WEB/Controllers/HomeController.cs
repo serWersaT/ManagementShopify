@@ -16,12 +16,7 @@ namespace ManagemenyShopify.WEB.Controllers
     public class HomeController : Controller
     {
         
-        const string MyShopifyUrl = "https://fashion-maverick-009.myshopify.com/";
-        const string redirectUrl = "https://fashion-maverick-009.myshopify.com/admin/oauth/authorize";
-        const string shopifyApiKey = "6bbfae03b9537d545dbd7ae2c6bd7ab3";
-        const string shopifySecretKey = "ece45fea8a4177b72108121d7dfb428c";
-        const string accessToken = "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";
-        Service service = new Service(MyShopifyUrl, accessToken);
+        Service service = new Service("", "");
         public IActionResult Index()
         {
             return View();
@@ -87,5 +82,11 @@ namespace ManagemenyShopify.WEB.Controllers
             return Json(service.UpdateOrder(orderId, model.OrderModel()));
         }
 
+        [HttpPost]
+        public JsonResult TestOrder(int orderId)    //Обновить заказ
+        {
+            var model = new OrderTestModel();
+            return Json(service.TestOrder(model.OrderModel()));
+        }
     }
 }

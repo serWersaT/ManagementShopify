@@ -10,256 +10,15 @@ namespace ManagemenyShopify.WEB.Models
     public class OrderTestModel
     {
         public Order OrderModel()
-        {
-            LineItem lineitem = new LineItem()
-            {
-                AdminGraphQLAPIId = "AdminGraphQLAPIId_TEST",
-                FulfillableQuantity = 45454,
-                FulfillmentLineItemId = 454545,
-                FulfillmentService = "FulfillmentService_TEST",
-                //FulfillmentStatus = "FulfillmentStatus_TEST",
-                GiftCard = true,
-                Grams = 565656,
-                Id = 8787887,
-                Name = "Name_TEST",
-                Price = 565656,
-                ProductExists = true,
-                ProductId = 667677,
-                Quantity = 6767,
-                RequiresShipping = true,
-                SKU = "SKU_TEST",
-                Taxable = true,
-                TipPaymentGateway = "TipPaymentGateway_TEST",
-                TipPaymentGatewaySpecified = true,
-                TipPaymentMethod = "TipPaymentMethod_TEST",
-                Title = "Title_TEST",
-                TotalDiscount = 676767,
-                VariantId = 78787,
-                VariantInventoryManagement = "VariantInventoryManagement_TEST",
-                VariantTitle = "VariantTitle_TEST",
-                Vendor = "Vendor_TEST",
-
-                TaxLines = new List<TaxLine>() {
-                        new TaxLine()
-                        {
-                            Price = 454545,
-                            Rate = 545445,
-                            Title = "Title_TEST",
-                            PriceSet = new PriceSet(){
-                                ShopMoney = new Price()
-                                {
-                                    Amount = 67677,
-                                    CurrencyCode = "CurrencyCode_TEST"
-                                },
-                                PresentmentMoney = new Price()
-                                {
-                                    Amount = 67677,
-                                    CurrencyCode = "CurrencyCode_TEST"
-                                }
-                            }
-                        }
-                    },
-
-                OriginLocation = new LineItemOriginLocation()
-                {
-                    Address1 = "Address1_TEST",
-                    Address2 = "Address2_TEST",
-                    AdminGraphQLAPIId = "AdminGraphQLAPIId_TEST",
-                    City = "City_TEST",
-                    CountryCode = "CountryCode_TEST",
-                    Name = "Name_TEST",
-                    ProvinceCode = "ProvinceCode_TEST",
-                    Zip = "Zip_TEST"
-                },
-
-                Properties = new List<LineItemProperty>()
-                    {
-                        new LineItemProperty(){
-                            Name = "Name_TEST",
-                            Value = "Value_TEST"
-                        }
-                    },
-
-
-                PriceSet = new PriceSet()
-                {
-                    PresentmentMoney = new Price()
-                    {
-                        Amount = 67677,
-                        CurrencyCode = "CurrencyCode_TEST"
-                    },
-                    ShopMoney = new Price()
-                    {
-                        Amount = 67677,
-                        CurrencyCode = "CurrencyCode_TEST"
-                    }
-                },
-                TotalDiscountSet = new PriceSet()
-                {
-                    PresentmentMoney = new Price()
-                    {
-                        Amount = 67677,
-                        CurrencyCode = "CurrencyCode_TEST"
-                    },
-                    ShopMoney = new Price()
-                    {
-                        Amount = 67677,
-                        CurrencyCode = "CurrencyCode_TEST"
-                    }
-                },
-                DiscountAllocations = new List<DiscountAllocation>()
-                    {
-                        new DiscountAllocation()
-                        {
-                            Amount = "Amount_TEST",
-                            DiscountApplicationIndex = 565656,
-                            AmountSet = new PriceSet()
-                            {
-                                PresentmentMoney = new Price()
-                                {
-                                    Amount = 67677,
-                                    CurrencyCode = "CurrencyCode_TEST"
-                                },
-                                ShopMoney = new Price()
-                                {
-                                    Amount = 67677,
-                                    CurrencyCode = "CurrencyCode_TEST"
-                                },
-                            }
-                        }
-                    },
-                Duties = new List<LineItemDuty>()
-                    {
-                        new LineItemDuty(){
-                            AdminGraphQLAPIId = "AdminGraphQLAPIId_TEST",
-                            CountryCodeOfOrigin = "CountryCodeOfOrigin_TEST",
-                            HarmonizedSystemCode = "HarmonizedSystemCode_TEST",
-                            PresentmentMoney = new Price()
-                            {
-                                Amount = 67677,
-                                CurrencyCode = "CurrencyCode_TEST"
-                            },
-                            ShopMoney = new Price()
-                            {
-                                Amount = 67677,
-                                CurrencyCode = "CurrencyCode_TEST"
-                            },
-                            TaxLines = new List<TaxLine>(){
-                                new TaxLine(){
-                                    Price = 5454545,
-                                    Rate = 33434,
-                                    Title = "Title_TEST",
-                                    PriceSet = new PriceSet()
-                                    {
-                                        PresentmentMoney = new Price()
-                                        {
-                                            Amount = 67677,
-                                            CurrencyCode = "CurrencyCode_TEST"
-                                        },
-                                        ShopMoney = new Price()
-                                        {
-                                            Amount = 67677,
-                                            CurrencyCode = "CurrencyCode_TEST"
-                                        },
-                                    }
-                                }
-                            }
-                        }
-                    },
-
-            };
-
-
-
-            var Fulfillment1 = new Fulfillment()
-            {
-                AdminGraphQLAPIId = "Test",
-                CreatedAt = DateTime.Now,
-                Email = "test@test.ru",
-                Id = 55656,
-                Name = "Name_TEST",
-                NotifyCustomer = true,
-                OrderId = 56565655,
-                Receipt = new object(),
-                Service = "Service_TEST",
-                LocationId = 787878,
-                Status = "Status_TEST",
-                TrackingCompany = "TrackingCompany_TEST",
-                OriginAddress = new Address()
-                {
-                    Address1 = "Address1_TEST",
-                    Address2 = "Address2_TEST",
-                    AdminGraphQLAPIId = "AdminGraphQLAPIId_TEST",
-                    City = "City_TEST",
-                    Company = "Company_TEST",
-                    Country = "Country_TEST",
-                    CountryCode = "CountryCode_TEST",
-                    CountryName = "CountryName_TEST",
-                    Default = true,
-                    FirstName = "FirstName_TEST",
-                    Id = 4545454545,
-                    LastName = "LastName_TEST",
-                    Latitude = 56565656,
-                    Longitude = 676767,
-                    Name = "Name_TEST",
-                    Phone = "Phone_TEST",
-                    Province = "Province_TEST",
-                    ProvinceCode = "ProvinceCode_TEST",
-                    Zip = "Zip_TEST"
-                },
-                VariantInventoryManagement = "VariantInventoryManagement_TEST",
-                UpdatedAt = DateTime.Now,
-                TrackingUrls = new List<string>()
-                    {
-                        "TEST1",
-                        "TEST2",
-                        "TEST3"
-                    },
-                Destination = new Address()
-                {
-                    Address1 = "Address1_TEST",
-                    Address2 = "Address2_TEST",
-                    AdminGraphQLAPIId = "AdminGraphQLAPIId_TEST",
-                    City = "City_TEST",
-                    Company = "Company_TEST",
-                    Country = "Country_TEST",
-                    CountryCode = "CountryCode_TEST",
-                    CountryName = "CountryName_TEST",
-                    Default = true,
-                    FirstName = "FirstName_TEST",
-                    Id = 4545454545,
-                    LastName = "LastName_TEST",
-                    Latitude = 56565656,
-                    Longitude = 676767,
-                    Name = "Name_TEST",
-                    Phone = "Phone_TEST",
-                    Province = "Province_TEST",
-                    ProvinceCode = "ProvinceCode_TEST",
-                    Zip = "Zip_TEST"
-                },
-                ShipmentStatus = "ShipmentStatus_TEST",
-                TrackingNumber = "TrackingNumber_TEST",
-                TrackingNumbers = new List<string>(){
-                        "TEST1",
-                        "TEST2",
-                        "TEST3",
-                        "TEST4"
-                    },
-                TrackingUrl = "TEST",
-                LineItems = new List<LineItem>()
-                    {
-                        lineitem
-                    }
-            };
-
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        {     
             var order = new Order()
             {
+                Id = 45454,
                 AdminGraphQLAPIId = "AdminGraphQLAPIId_TEST",
                 BuyerAcceptsMarketing = true,
                 CancelledAt = DateTime.Now,
                 ClosedAt = DateTime.Now,
-                CurrentSubtotalPrice = 12121221,
+                CurrentSubtotalPrice = 1221,
                 CreatedAt = DateTime.UtcNow,
                 UserId = 1212122121212,
                 AppId = 56565656,
@@ -271,12 +30,74 @@ namespace ManagemenyShopify.WEB.Models
                 Confirmed = true,
                 Currency = "USD",
                 CurrentTotalDiscounts = 4545454545,
-                CurrentTotalPrice = 456565666,
+                CurrentTotalPrice = 45666,
                 CurrentTotalTax = 565656,
                 CustomerLocale = "CustomerLocale_TEST",
                 DeviceId = 767676767,
                 EstimatedTaxes = true,
-                BillingAddress = new ShopifyAddress()
+                UpdatedAt = DateTime.Now,
+                TotalTax = 4545545,
+                FulfillmentStatus = "test test test",
+                LandingSite = "test test test",
+                LocationId = 565656,
+                Name = "test test test",
+                Number = 2232,
+                OrderNumber = 44545,
+                OrderStatusUrl = "https://test.com/test",
+                Phone = "8912345678",
+                PresentmentCurrency = "test test test",
+                ProcessedAt = DateTime.Now,
+                SourceName = "test test test",
+                ProcessingMethod = "test test test",
+                ReferringSite = "test test test",
+                SubtotalPrice = 454545,
+                Tags = "test test test",
+                TaxesIncluded = true,
+                Test = true,
+                TotalLineItemsPrice = 454545,
+                TotalDiscounts = 454545454,
+                TotalOutstanding = "test test test",
+                ShippingAddress = new Address()
+                {
+                    Address1 = "123 4th Street",
+                    City = "Minneapolis",
+                    Province = "Minnesota",
+                    ProvinceCode = "MN",
+                    Zip = "55401",
+                    Phone = "555-555-5555",
+                    FirstName = "John",
+                    LastName = "Doe",
+                    Company = "Tomorrow Corporation",
+                    Country = "United States",
+                    CountryCode = "US",
+                    Default = true,
+                },
+                Customer = new Customer()
+                {
+                  Id = 45454,
+                  AcceptsMarketing = true,
+                  AcceptsMarketingUpdatedAt = DateTime.Now,
+                  CreatedAt = DateTime.Now,
+                  Currency = "test test test",
+                  Email = "test@test.ru",
+                  FirstName = "test test test",
+                  LastName = "test teset test",
+                  LastOrderId = 454545,
+                  LastOrderName = "test test test",
+                  Note = "test test test",
+                  AdminGraphQLAPIId = "test test test",
+                  MultipassIdentifier = "tes test test",
+                  Phone = "9123456789",
+                  State = "test test test",
+                  Tags = "test test test",
+                  OrdersCount = 4545,
+                  TaxExempt = true,
+                  TotalSpent = 676767,
+                  MarketingOptInLevel = "test test test",
+                  UpdatedAt = DateTime.Now,
+                  VerifiedEmail = true
+                },
+                BillingAddress = new Address()
                 {
                     Address1 = "123 4th Street",
                     City = "Minneapolis",
@@ -298,7 +119,7 @@ namespace ManagemenyShopify.WEB.Models
                             {
                                 Name = "Test2 Line2 Item2",
                                 Title = "Test2 Line2 Item2 Title2",
-                                Price = 100,
+                                Price = 101,
                                 AdminGraphQLAPIId = "",
                                 FulfillableQuantity = 0,
                                 Grams = 250,
@@ -312,7 +133,6 @@ namespace ManagemenyShopify.WEB.Models
                                 GiftCard = true,
                                 TotalDiscount = 567567,
                                 VariantId = 345345345435,
-                                //FulfillmentService = "FulfillmentService_TEST",
                                 FulfillmentStatus = "1",
                                 TipPaymentGatewaySpecified = true,
                                 Id = 3453444,
@@ -365,7 +185,7 @@ namespace ManagemenyShopify.WEB.Models
                                 {
                                     new TaxLine()
                                     {
-                                        Price = 34534534,
+                                        Price = 3434,
                                         Rate = 56456,
                                         Title = "Title_TEST",
                                         PriceSet = new PriceSet()
