@@ -64,7 +64,7 @@ namespace ManagemenyShopify.WEB.Services
             {
                 return await orderService.CountAsync();
             }
-            catch
+            catch (Exception ex)
             {
                 return 0;
             }
@@ -74,10 +74,12 @@ namespace ManagemenyShopify.WEB.Services
         {
             try
             {
-                await orderService.DeleteAsync(id);
+                var order = await GetOrderById(id);
+                await orderService.DeleteAsync(id);                
+                SerializeOrder(order);
                 return "Заказ удален";
             }
-            catch
+            catch(Exception ex)
             {
                 return "Нет заказа с таким Id";
             }

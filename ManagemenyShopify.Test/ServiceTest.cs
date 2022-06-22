@@ -58,11 +58,23 @@ namespace ManagemenyShopify.Test
             OrderTestModelNew model = new OrderTestModelNew();
             var check = "¬оскрешение выполнено";
 
-            var resultId = await service.CreateOrder(model.order());
+            var resultId = await service.CreateOrder(model.order());    //создаем новый заказ, получаем его Id и сохран€ем в json
+            var result = await service.DeleteOrder(Convert.ToInt64(resultId));  // удал€ем созданный заказ
+            var reborn = await service.RebornOrder(Convert.ToInt64(resultId));  // восстанавливаем его
 
-            var result = await service.DeleteOrder(Convert.ToInt64(resultId));
+            Assert.Equal(reborn, check);
+        }
 
-            var reborn = await service.RebornOrder(Convert.ToInt64(resultId));
+
+        [Fact]
+        public async void RebornRealTest()
+        {
+            Service service = new Service(MyShopifyUrl, accessToken);
+            var check = "¬оскрешение выполнено";
+
+            var resultId = -1;    //–уками в браузере создаем новый заказ и копируем его Id (не удобно, id одноразовый)
+            var result = await service.DeleteOrder(Convert.ToInt64(resultId));  // удал€ем созданный заказ. ¬ метод добавил получение инфы о заказе как имитаци€ обращени€ в Ѕƒ
+            var reborn = await service.RebornOrder(Convert.ToInt64(resultId));  // восстанавливаем его
 
             Assert.Equal(reborn, check);
         }
