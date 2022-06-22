@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ManagemenyShopify.WEB.Models
 {
-    public class OrderTestModel
+    public class OrderTestModelOld
     {
         public Order OrderModel()
         {     
@@ -18,7 +18,7 @@ namespace ManagemenyShopify.WEB.Models
                 BuyerAcceptsMarketing = true,
                 CancelledAt = DateTime.Now,
                 ClosedAt = DateTime.Now,
-                CurrentSubtotalPrice = 1221,
+                CurrentSubtotalPrice = 12,
                 CreatedAt = DateTime.UtcNow,
                 UserId = 1212122121212,
                 AppId = 56565656,
@@ -30,14 +30,14 @@ namespace ManagemenyShopify.WEB.Models
                 Confirmed = true,
                 Currency = "USD",
                 CurrentTotalDiscounts = 4545454545,
-                CurrentTotalPrice = 45666,
-                CurrentTotalTax = 565656,
+                CurrentTotalPrice = 250,
+                CurrentTotalTax = 5,
                 CustomerLocale = "CustomerLocale_TEST",
                 DeviceId = 767676767,
                 EstimatedTaxes = true,
                 UpdatedAt = DateTime.Now,
                 TotalTax = 4545545,
-                FulfillmentStatus = "test test test",
+                //FulfillmentStatus = "1",
                 LandingSite = "test test test",
                 LocationId = 565656,
                 Name = "test test test",
@@ -45,18 +45,30 @@ namespace ManagemenyShopify.WEB.Models
                 OrderNumber = 44545,
                 OrderStatusUrl = "https://test.com/test",
                 Phone = "8912345678",
-                PresentmentCurrency = "test test test",
+                PresentmentCurrency = "USD",
                 ProcessedAt = DateTime.Now,
                 SourceName = "test test test",
                 ProcessingMethod = "test test test",
                 ReferringSite = "test test test",
-                SubtotalPrice = 454545,
+                SubtotalPrice = 250,
                 Tags = "test test test",
                 TaxesIncluded = true,
                 Test = true,
-                TotalLineItemsPrice = 454545,
+                TotalLineItemsPrice = 250,
                 TotalDiscounts = 454545454,
                 TotalOutstanding = "test test test",
+                TotalPriceSet = new PriceSet() { 
+                    ShopMoney = new Price() 
+                    {
+                        Amount = 110,
+                        CurrencyCode = "test"
+                    },
+                    PresentmentMoney = new Price() 
+                    {
+                        Amount = 110,
+                        CurrencyCode = "test"
+                    }
+                },
                 ShippingAddress = new Address()
                 {
                     Address1 = "123 4th Street",
@@ -78,8 +90,8 @@ namespace ManagemenyShopify.WEB.Models
                   AcceptsMarketing = true,
                   AcceptsMarketingUpdatedAt = DateTime.Now,
                   CreatedAt = DateTime.Now,
-                  Currency = "test test test",
-                  Email = "test@test.ru",
+                  Currency = "USD",
+                  Email = "test@example.com",
                   FirstName = "test test test",
                   LastName = "test teset test",
                   LastOrderId = 454545,
@@ -90,7 +102,7 @@ namespace ManagemenyShopify.WEB.Models
                   Phone = "9123456789",
                   State = "test test test",
                   Tags = "test test test",
-                  OrdersCount = 4545,
+                  OrdersCount = 3,
                   TaxExempt = true,
                   TotalSpent = 676767,
                   MarketingOptInLevel = "test test test",
@@ -119,7 +131,7 @@ namespace ManagemenyShopify.WEB.Models
                             {
                                 Name = "Test2 Line2 Item2",
                                 Title = "Test2 Line2 Item2 Title2",
-                                Price = 101,
+                                Price = 1100,
                                 AdminGraphQLAPIId = "",
                                 FulfillableQuantity = 0,
                                 Grams = 250,
@@ -129,11 +141,11 @@ namespace ManagemenyShopify.WEB.Models
                                 RequiresShipping = true,
                                 Taxable = true,
                                 SKU = "",
-                                FulfillmentLineItemId = 3242342,
+                                //FulfillmentLineItemId = 1,
                                 GiftCard = true,
                                 TotalDiscount = 567567,
                                 VariantId = 345345345435,
-                                FulfillmentStatus = "1",
+                                //FulfillmentStatus = "1",
                                 TipPaymentGatewaySpecified = true,
                                 Id = 3453444,
                                 TipPaymentGateway = "TipPaymentGateway_TEST",
@@ -151,13 +163,13 @@ namespace ManagemenyShopify.WEB.Models
                                         {
                                             PresentmentMoney = new Price()
                                             {
-                                                Amount = 23232323,
-                                                CurrencyCode = "CurrencyCode_TEST"
+                                                Amount = 230,
+                                                CurrencyCode = "USD"
                                             },
                                             ShopMoney = new Price()
                                             {
-                                                Amount = 23232323,
-                                                CurrencyCode = "CurrencyCode_TEST"
+                                                Amount = 230,
+                                                CurrencyCode = "USD"
                                             }
                                         }
                                     }
@@ -165,12 +177,12 @@ namespace ManagemenyShopify.WEB.Models
                                 PriceSet = new PriceSet()
                                 {
                                     PresentmentMoney = new Price(){
-                                        Amount = 23232323,
-                                        CurrencyCode = "CurrencyCode_TEST"
+                                        Amount = 230,
+                                        CurrencyCode = "USD"
                                     },
                                     ShopMoney = new Price(){
-                                        Amount = 23232323,
-                                        CurrencyCode = "CurrencyCode_TEST"
+                                        Amount = 230,
+                                        CurrencyCode = "USD"
                                     }
                                 },
                                 Properties = new List<LineItemProperty>()
@@ -185,20 +197,20 @@ namespace ManagemenyShopify.WEB.Models
                                 {
                                     new TaxLine()
                                     {
-                                        Price = 3434,
+                                        Price = 13,
                                         Rate = 56456,
                                         Title = "Title_TEST",
                                         PriceSet = new PriceSet()
                                         {
                                              PresentmentMoney = new Price()
                                              {
-                                                Amount = 23232323,
-                                                CurrencyCode = "CurrencyCode_TEST"
+                                                Amount = 23,
+                                                CurrencyCode = "USD"
                                              },
                                             ShopMoney = new Price()
                                             {
-                                                Amount = 23232323,
-                                                CurrencyCode = "CurrencyCode_TEST"
+                                                Amount = 23,
+                                                CurrencyCode = "USD"
                                             }
                                         }
                                     }
@@ -218,13 +230,13 @@ namespace ManagemenyShopify.WEB.Models
                                 {
                                     PresentmentMoney = new Price()
                                     {
-                                        Amount = 6666666,
-                                        CurrencyCode = "CurrencyCode_TEST"
+                                        Amount = 66,
+                                        CurrencyCode = "USD"
                                     },
                                     ShopMoney = new Price()
                                     {
-                                        Amount = 45454,
-                                        CurrencyCode = "CurrencyCode_TEST"
+                                        Amount = 45,
+                                        CurrencyCode = "USD"
                                     }
                                 },
                                 Duties = new List<LineItemDuty>()
@@ -236,13 +248,13 @@ namespace ManagemenyShopify.WEB.Models
                                         HarmonizedSystemCode = "HarmonizedSystemCode_TEST",
                                         PresentmentMoney = new Price()
                                             {
-                                                Amount = 23232323,
-                                                CurrencyCode = "CurrencyCode_TEST"
+                                                Amount = 23,
+                                                CurrencyCode = "USD"
                                             },
                                         ShopMoney = new Price()
                                             {
-                                                Amount = 23232323,
-                                                CurrencyCode = "CurrencyCode_TEST"
+                                                Amount = 23,
+                                                CurrencyCode = "USD"
                                             }
                                     }
                                 }
@@ -251,8 +263,8 @@ namespace ManagemenyShopify.WEB.Models
                             }
                         },
                 FinancialStatus = "paid",
-                TotalPrice = 5,
-                Email = Guid.NewGuid().ToString() + "@example.com",
+                TotalPrice = 430000,
+                Email = "test@example.com",
                 Note = "Test note about the customer.",
             };
 

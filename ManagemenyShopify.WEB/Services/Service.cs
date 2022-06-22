@@ -17,7 +17,7 @@ namespace ManagemenyShopify.WEB.Services
         string _accessToken;
         OrderService orderService;
 
-        OrderTestModel testmodel = new OrderTestModel();
+        OrderTestModelOld testmodel = new OrderTestModelOld();
 
         string jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DB\\");
 
@@ -70,7 +70,7 @@ namespace ManagemenyShopify.WEB.Services
             }
         }
 
-        public async Task<string> DeleteOrder(int id)
+        public async Task<string> DeleteOrder(long id)
         {
             try
             {
@@ -84,21 +84,22 @@ namespace ManagemenyShopify.WEB.Services
         }
 
 
-        private void SerializeOrder(Order order)
+        public void SerializeOrder(Order order)
         {
             string jsonData = JsonConvert.SerializeObject(order, Newtonsoft.Json.Formatting.None);
             System.IO.File.WriteAllText(jsonPath + order.Id.ToString() + "jsondata.json", jsonData);
         }
 
-        private Order DesirializeOrder(long? id)
-        {
+        private OrderTestModelNew DesirializeOrder(long? id)
+        {            
             using (StreamReader reader = new StreamReader(jsonPath + id.ToString() + "jsondata.json"))
             {
-                Order order = new Order();
+                //Order order = new Order();
+                OrderTestModelNew order = new OrderTestModelNew();
                 if (reader != null)
                 {
                     string text = reader.ReadToEnd();
-                    order = JsonConvert.DeserializeObject<Order>(text);                    
+                    order = JsonConvert.DeserializeObject<OrderTestModelNew>(text);                    
                 }
                 else
                 {
@@ -110,28 +111,13 @@ namespace ManagemenyShopify.WEB.Services
 
 
 
-        public async Task<string> TestOrder(Order order)
-        {
-            try
-            {
-                SerializeOrder(order);
-                var getorder = DesirializeOrder(order.Id);
-                return "Заказ успешно создан";
-            }
-            catch (Exception ex)
-            {
-                return "Error:" + ex.ToString();
-            }
-        }
-
         public async Task<string> CreateOrder(Order order)
         {
             try
-            {
-                SerializeOrder(order);
+            {               
                 order = await orderService.CreateAsync(order);    /*закоммичено чтобы не захламлять список левых заказов. Проверено - работает*/
-
-                return "Заказ успешно создан";
+                SerializeOrder(order);
+                return order.Id.ToString();
             }
             catch (Exception ex)
             {
@@ -145,7 +131,7 @@ namespace ManagemenyShopify.WEB.Services
             try
             {
                 var GetOrder = DesirializeOrder(id);
-                var order = await orderService.CreateAsync(GetOrder);    
+                var order = await orderService.CreateAsync(GetOrder.order());    
                 return "Воскрешение выполнено";
             }
             catch (Exception ex)

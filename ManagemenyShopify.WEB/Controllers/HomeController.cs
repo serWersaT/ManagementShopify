@@ -63,7 +63,7 @@ namespace ManagemenyShopify.WEB.Controllers
         [HttpPost]
         public JsonResult CreateAddress()    //создаем заказ в shopisy и сохраняем его у себя в json
         {
-            var model = new OrderTestModel();
+            var model = new OrderTestModelOld();
             return Json(service.CreateOrder(model.OrderModel()));
         }
 
@@ -71,22 +71,16 @@ namespace ManagemenyShopify.WEB.Controllers
         [HttpPost]
         public JsonResult RebornOrder(int id)    //Воскрешаем заказ
         {
-            var model = new OrderTestModel();
+            var model = new OrderTestModelOld();
             return Json(service.RebornOrder(id));
         }
 
         [HttpPost]
         public JsonResult UpdateOrder(int orderId)    //Обновить заказ
         {
-            var model = new OrderTestModel();
+            var model = new OrderTestModelOld();
             return Json(service.UpdateOrder(orderId, model.OrderModel()));
         }
 
-        [HttpPost]
-        public JsonResult TestOrder(int orderId)    //Обновить заказ
-        {
-            var model = new OrderTestModel();
-            return Json(service.TestOrder(model.OrderModel()));
-        }
     }
 }
